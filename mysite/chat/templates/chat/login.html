@@ -1,0 +1,27 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>login</title>
+</head>
+<body>
+    logged-in?<br>
+    <input id="login-input" type="text" size="100"><br>
+    <input id="login-submit" type="button" value="Enter">
+
+    <script>
+        document.querySelector('#login-input').focus();
+        document.querySelector('#login-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#loginsubmit').click();
+            }
+        };
+
+        document.querySelector('#login-submit').onclick = function(e) {
+            var username = document.querySelector('#login-input').value;
+            window.location.pathname = '/chat/' + username + '/';
+        };
+    </script>
+</body>
+</html>
